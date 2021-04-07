@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<body>
+<div id="counter">
+    <span>
+        不推荐同时使用 v-if 和 v-for。请查阅风格指南以获取更多信息。
+        当 v-if 与 v-for 一起使用时，v-for 具有比 v-if 更高的优先级。请查阅列表渲染指南以获取详细信息。
+    </span>
+    <span>{{loginType}}</span>
+    <template v-if="loginType === 'username'">
+        <label>Username</label>
+        <input placeholder="Enter your username">
+    </template>
+    <template v-else>
+        <label>Email</label>
+        <input placeholder="Enter your email address">
+    </template>
+</div>
+</body>
+<script>
+    const Counter = {
+        el:"#counter",
+        data: {
+
+                loginType:"username",
+                buttons:"按钮",
+                counter: 0
+
+        },
+        methods:{
+            doSomething:function(){
+                alert(this)
+            }
+        },
+        mounted() {
+            setInterval(() => {
+                this.counter++
+            }, 1000)
+        }
+    }
+
+    new Vue(Counter);
+</script>
+</html>

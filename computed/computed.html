@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<body>
+<div id="event-handling">
+    <span>
+        我们可以将同一函数定义为一个方法而不是一个计算属性。两种方式的最终结果确实是完全相同的。然而，不同的是计算属性是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生改变时它们才会重新求值。这就意味着只要 message 还没有发生改变，多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数
+    </span>
+    <p>{{ message }}</p>
+    <br>
+    <p>{{reverseMessages}}</p>
+    <button v-on:click="reverseMessage">反转 Message</button>
+</div>
+</body>
+<script>
+    const EventHandling = {
+        el:"#event-handling",
+        data() {
+            return {
+                message: 'Hello Vue.js!'
+            }
+        },
+        computed:{
+            reverseMessages:function (){
+               return  this.message
+                    .split('')
+                    .reverse()
+                    .join('')
+            }
+        },
+        methods: {
+            reverseMessage() {
+                this.message = this.message
+                    .split('')
+                    .reverse()
+                    .join('')
+            }
+        }
+    }
+    new Vue(EventHandling);
+</script>
+</html>

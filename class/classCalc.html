@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<body>
+<div id="counter">
+    <div v-bind:class="classObject">对象计算属性</div>
+</div>
+</body>
+<script>
+    const Counter = {
+        el:"#counter",
+        data: {
+            classObject: {
+                "active": false,
+                'text-danger': true
+            }
+        },
+        mounted() {
+            setInterval(() => {
+                this.counter++
+            }, 1000)
+        }
+    }
+    new Vue(Counter);
+</script>
+<style>
+    .text-danger {
+        font-size: 26px;
+    }
+    .active{
+        color: red;
+    }
+</style>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<body>
+<span>
+    前缀作为一种视觉提示，用来识别模板中 Vue 特定的 attribute。当你在使用 Vue.js 为现有标签添加动态行为 (dynamic behavior) 时，v- 前缀很有帮助，然而，对于一些频繁用到的指令来说，就会感到使用繁琐
+</span>
+<div  id="counter" >
+    <a v-bind:href="url">URL</a>
+    <div v-bind:id="counter">
+        Counter: {{ counter }}
+        <button @click="doSomething">{{buttons}}</button>
+    </div>
+</div>
+</body>
+<script>
+    const Counter = {
+        el:"#counter",
+        data() {
+            return {
+                buttons:"按钮",
+                counter: 0,
+                url:"http://baidu.com"
+            }
+        },
+        methods:{
+            doSomething:function(){
+                alert(this)
+            }
+        },
+        mounted() {
+            setInterval(() => {
+                this.counter++
+            }, 1000)
+        }
+    }
+
+    new Vue(Counter);
+</script>
+</html>

@@ -13,6 +13,7 @@
 </body>
 <script>
     const EventHandling = {
+        el:"#event-handling",
         data() {
             return {
                 message: 'Hello Vue.js!'
@@ -27,6 +28,6 @@
             }
         }
     }
-    Vue.createApp(EventHandling).mount('#event-handling')
+    new Vue(EventHandling);
 </script>
 </html>

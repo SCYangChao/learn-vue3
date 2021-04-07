@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<body>
+<div id="app">
+    <p>{{ message }}</p>
+    <img src="../static/img/lifecycle.png">
+</div>
+</body>
+<script>
+    var data = {
+        message: '生命周期钩子的函数，这给了用户在不同阶段添加自己的代码的机会'
+    }
+    var vm = new Vue({
+        el: '#app',
+        data: data,
+        /**
+         * `this` 指向 vm 实例
+         */
+        created:function () {
+        }
+    })
+
+</script>
+</html>

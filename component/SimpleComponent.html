@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<body>
+<div id="app">
+    <ol>
+        <todo-item v-for="todo in list"  v-bind:todo="todo" v-bind:key="todo.text"></todo-item>
+    </ol>
+</div>
+</body>
+<script>
+    Vue.component('todo-item', {
+        template: '<li>{{todo.text}}</li>',
+        props: ['todo']
+    })
+    var app = new Vue({
+        el: '#app',
+        data: {
+            list:[
+                {text:"JAVA"},
+                {text:"C++"},
+                {text:"C"},
+                {text:"GO"},
+                {text:"VUE"},
+            ]
+        }
+    })
+</script>
+</html>

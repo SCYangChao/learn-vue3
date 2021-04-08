@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<body>
+<div id="example-3">
+    <button v-on:click="warn('Form cannot be submitted yet.', $event)">
+        Submit
+    </button>
+</div>
+</body>
+<script>
+    new Vue({
+        el: '#example-3',
+        methods: {
+            warn: function (message, event) {
+                console.log(event)
+                // 现在我们可以访问原生事件对象
+                if (event) {
+                    event.preventDefault()
+                }
+                alert(message)
+            }
+        }
+    })
+</script>
+</html>

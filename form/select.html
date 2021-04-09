@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<body>
+    <div id="counter">
+            <select v-model="selected" :css="ccss">
+                <option disabled value="">请选择</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>Selected: {{ selected }}</span>
+    </div>
+</body>
+<script>
+    const Counter = {
+        el:"#counter",
+        data() {
+            return {
+                selected: "A",
+                messages: "",
+                ccss:"font-size:20px;",
+                checkedNames: ["John"]
+            }
+        },
+        mounted() {
+         /*   setInterval(() => {
+                this.counter++
+            }, 1000)*/
+        }
+    }
+
+    new Vue(Counter);
+</script>
+</html>

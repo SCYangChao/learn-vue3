@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<body>
+<div id="counter">
+    <input v-model="messages"/>
+    <br/>
+    INPUT: {{ messages }}
+</div>
+</body>
+<script>
+    const Counter = {
+        el:"#counter",
+        data() {
+            return {
+                messages: ""
+            }
+        },
+        mounted() {
+         /*   setInterval(() => {
+                this.counter++
+            }, 1000)*/
+        }
+    }
+
+    new Vue(Counter);
+</script>
+</html>

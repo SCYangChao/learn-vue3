@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<body>
+<div id="components-demo" :style="{ fontSize: postFontSize + 'em' }">
+    <span>
+        注意当点击按钮时，每个组件都会各自独立维护它的 count。因为你每用一次组件，就会有一个它的新实例被创建。
+    </span>
+    <br/>
+    <button-counter v-for="b in bts"
+                    v-bind:key="b.id"
+                    v-on:enlarge-text="postFontSize += $event"
+                    v-bind:name="b.name">
+    </button-counter>
+</div>
+</body>
+<script>
+    Vue.component('button-counter', {
+        props:['name'],
+        /**
+         * 取而代之的是，一个组件的 data 选项必须是一个函数，因此每个实例可以维护一份被返回对象的独立的拷贝：
+         */
+        data: function () {
+            return {
+                count: 0
+            }
+        }/*,
+        data: {
+            count: 0
+        }*/
+       /* data: {
+            count: 0
+        }*/
+        ,
+        template: '   <div class="blog-post">' +
+            '      <h3>{{ name }}</h3>\n' +
+            '      <button v-on:click="$emit(\'enlarge-text\',1)">' +
+            '        Enlarge text' +
+            '      </button>' +
+            '      <div v-html="name"></div>' +
+            '    </div>'
+    })
+    new Vue({
+        el: '#components-demo' ,
+        data:{
+            postFontSize:1,
+            bts: [{
+            id:1,
+            name:"动态传值到BUGTTON&&&&one"
+        },
+         {
+                id:2,
+                name:"动态传值到BUGTTON TWO"
+         }
+        ]}
+    })
+
+</script>
+</html>
